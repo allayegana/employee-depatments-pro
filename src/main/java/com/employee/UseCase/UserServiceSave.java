@@ -16,10 +16,8 @@ public class UserServiceSave {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
     public void addNewUser(User user) throws Exception {
-        String password = user.getPassword();
-        String encoPassword = passwordEncoder.encode(password);
+        String encoPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encoPassword);
         repository.save(user);
     }
