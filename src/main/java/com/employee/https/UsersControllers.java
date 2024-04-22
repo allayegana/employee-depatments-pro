@@ -1,13 +1,14 @@
 package com.employee.https;
 
 
-import com.employee.Models.Department;
 import com.employee.Models.User;
 import com.employee.UseCase.UserServiceSave;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @Slf4j
@@ -18,6 +19,7 @@ public class UsersControllers {
 
     @Autowired
     private UserServiceSave serviceSave;
+
     @PostMapping("/add/users")
     @ResponseStatus(HttpStatus.CREATED)
     public void addDpt(@RequestBody User user) throws Exception {
@@ -25,5 +27,12 @@ public class UsersControllers {
         serviceSave.addNewUser(user);
     }
 
+
+    @GetMapping("/users")
+    @ResponseStatus(HttpStatus.OK)
+    public List<User> getAllUser() {
+        log.info("***** GET ALL USERS CONTROLLER *****");
+        return serviceSave.getAllUser();
+    }
 
 }
