@@ -27,4 +27,9 @@ public class Department implements Serializable {
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Employee> employees;
+
+    public Department(Long id, String dpartName) {
+        this.id = id;
+        this.dpartName = dpartName;
+    }
 }

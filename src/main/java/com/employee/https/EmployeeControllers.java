@@ -6,7 +6,6 @@ import com.employee.UseCase.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +19,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin("localhost:3000")
 public class EmployeeControllers implements Serializable {
 
     @Autowired
@@ -35,22 +35,22 @@ public class EmployeeControllers implements Serializable {
     @PostMapping("/add/emp")
     @ResponseStatus(HttpStatus.CREATED)
     public void addNewCar(@RequestBody Employee employee) {
-        log.info("***** ADD NEW EMP CONTROLLER *****");
+        log.info("***** ADD NEW EMP CONTROLLER ***** ");
         service.enrollerNewEmp(employee);
     }
 
 
    // @Secured("USER")
     @GetMapping("/emp/{id}")
-    public Optional<Employee> getcarById(@PathVariable("id") Long id) {
-        log.info("FIND EMP AND DEPARTMENTS BY ID CONTROLLER " + id);
+    public Optional<Employee> getEmpById(@PathVariable("id") Long id) {
+        log.info(" ***** FIND EMP AND DEPARTMENTS BY ID CONTROLLER ***** id= " + id);
         return service.getEmployee(id);
     }
 
     @DeleteMapping("/emp/{id}")
     public void removeCar(@PathVariable("id") Long id) {
         service.removeCar(id);
-        log.info("***** REMOVE EMP AND DEPARTMENTS BY ID CONTROLLER ******" + id);
+        log.info("***** REMOVE EMP AND DEPARTMENTS BY ID CONTROLLER ****** id= " + id);
 
     }
 
@@ -59,7 +59,7 @@ public class EmployeeControllers implements Serializable {
     @Transactional
     public void updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee) {
         service.updateEmployee(id, employee);
-        log.info("***** UPDATE EMP AND DEPARTMENTS BY ID CONTROLLER ***** " + employee);
+        log.info("***** UPDATE EMP AND DEPARTMENTS BY ID CONTROLLER ***** EMPLOYEES= " + employee);
     }
 
 //    @GetMapping("product/ad")
