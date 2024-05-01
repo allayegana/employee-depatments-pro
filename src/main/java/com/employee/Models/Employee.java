@@ -18,7 +18,9 @@ public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String fullName;
+    private String firstName;
+    private String lastName;
+    private String socialSC;
     private int enrollerId;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

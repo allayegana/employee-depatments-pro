@@ -62,4 +62,10 @@ public class EmployeeControllers implements Serializable {
         log.info("***** UPDATE EMP AND DEPARTMENTS BY ID CONTROLLER ***** " + employee);
     }
 
+//    @GetMapping("product/ad")
+//    public List<ProductDto> findbyName(@RequestParam("role") String name) {
+//        log.info("***** FIND PRODUCT BY REQUEST PARAM CONTROLLER *****");
+//        return productService.findByName(name);
+//    }
+
 }

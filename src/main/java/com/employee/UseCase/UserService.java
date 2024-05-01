@@ -9,6 +9,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class UserService implements UserDetailsService {
 
@@ -34,4 +37,30 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException("USER NOT FOUND");
         }
     }
+
+//    @Override
+//    public List<ProductDto> findByName(String name) {
+//        if (name.equalsIgnoreCase("ADMIN")) {
+//            List<Product> products = productRepository.findAll();
+//            List<ProductDto> productDtos = new ArrayList<>();
+//            for (Product product : products) {
+//                ProductDto productDto = convertToDto(product);
+//                productDtos.add(productDto);
+//            }
+//            return productDtos;
+//        } else {
+//            throw new RuntimeException("Invalid name provided: " + name);
+//        }
+//    }
+//
+//    private ProductDto convertToDto(Product product) {
+//        ProductDto dto = new ProductDto();
+//
+//        dto.setId(product.getId());
+//        dto.setName(product.getName());
+//        dto.setPrice(product.getPrice());
+//        dto.setCategory(product.getCategory());
+//
+//        return dto;
+//    }
 }
