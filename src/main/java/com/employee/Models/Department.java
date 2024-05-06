@@ -24,6 +24,8 @@ public class Department implements Serializable {
     @GeneratedValue( strategy = GenerationType.AUTO)
     private Long id;
     private String dpartName;
+    private String jobTile;
+    private String jobStatus;
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Employee> employees;

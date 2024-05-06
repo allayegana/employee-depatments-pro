@@ -23,7 +23,7 @@ public class UsersControllers {
     @PostMapping("/add/users")
     @ResponseStatus(HttpStatus.CREATED)
     public void addDpt(@RequestBody User user) throws Exception {
-        log.info("***** ADD NEW DPT CONTROLLER *****");
+        log.info("***** ADD NEW USER CONTROLLER *****");
         serviceSave.addNewUser(user);
     }
 

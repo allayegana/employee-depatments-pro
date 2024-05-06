@@ -1,0 +1,41 @@
+#version: '3.8'
+#
+#services:
+#  mysql:
+#    image: mysql:latest
+#    restart: unless-stopped
+#    networks:
+#      - EMPT_DP
+#    environment:
+#      MYSQL_ROOT_PASSWORD: Gana@2023
+#      MYSQL_DATABASE: EMPT_DP
+#      MYSQL_USER: root
+#      MYSQL_PASSWORD: Gana@2023
+#    ports:
+#      - "3322:3306"
+#    volumes:
+#      - db:/lib/mysql
+#  app:
+#    depends_on:
+#      - mysql
+#    build: ./
+#    restart: on-failure
+#    networks:
+#      - EMPT_DP
+#    ports:
+#      - "8080:8080"
+#    volumes:
+#      - .m2:/root/.m2
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:3306/EMPT_DP?createDatabaseIfNotExist=true
+#      SPRING_DATASOURCE_USERNAME: root
+#      SPRING_DATASOURCE_PASSWORD: Gana@2023
+#
+#    stdin_open: true
+#    tty: true
+#networks:
+#  EMPT_DP:
+#
+#volumes:
+#  db:
+#
